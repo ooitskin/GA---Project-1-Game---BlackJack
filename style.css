@@ -1,0 +1,94 @@
+body{
+  background: url('./img/darkbackground.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+h1{
+  color: white;
+  text-align: center;
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 70px;
+}
+
+div {
+  font-family: 'PT Mono', monospace;
+  font-size: 30px;
+}
+
+/* display cards */
+.card {
+  width: 80px;
+  height: 100px;
+  padding: 10px;
+  border: solid 2px red;
+  background-color: white;
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* player's box */
+.players {
+  margin: 0 auto;
+  width: 1000px;
+  text-align: center;
+}
+
+.player {
+  color: red;
+  width: 600px;
+  border: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  margin:0 auto;
+  margin-left: 10px;
+}
+
+.player.active {
+  border: solid 10px #AC3838;
+}
+
+#center {
+  text-align: center;
+}
+
+/* point counter */
+.points {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+/* deck counter */
+.deck { 
+  color: #AC3838;
+  width: 200px;
+  float: left;
+  margin: 0 auto;
+  margin-left: 100px;
+  position: fixed;
+}
+
+#button {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.btn {
+  font-family: 'Hammersmith One', sans-serif; 
+  font-size: 17px;
+  color: black;
+  border-radius: 5px;  
+  margin-left: 20px;
+  background-color: #B7BEC2;
+  border: none;
+}
+
+.btn:hover{
+  background-color: #53AFDA;
+}

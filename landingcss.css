@@ -1,0 +1,47 @@
+body{
+  background: url('./img/darkbackground.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+img {
+  width: 350px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+#logo {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#header {
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 60px;  
+  color: white;
+  text-align: center;
+  margin-top: -50px;
+}
+
+#click-instruct {
+  color: white;
+  font-family: 'PT Mono', monospace;
+  font-size: 15px; 
+  margin-top: -10px;
+}
+
+#link {
+  text-align: center;
+}
+
+#intro {
+  text-align: center;
+  font-family: 'PT Mono', monospace;
+  font-size: 15px;   
+  color: white;
+  line-height: 15px;
+  margin-top: -50px;
+}
+
