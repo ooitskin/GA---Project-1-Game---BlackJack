@@ -1,11 +1,11 @@
 // jQuery for fadeIn
-$(function(){
-console.log('JSLinked!');
+$(function () {
+  console.log('JSLinked!');
 
   $('body').css('display', 'none');
   $('body').fadeIn(2000);
 
-}); 
+});
 // end jQuery
 
 var suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
@@ -15,23 +15,23 @@ var players = [];
 var currentPlayer = 0;
 
 // creating divs for each player
-function makePlayerDivs(){
+function makePlayerDivs() {
   document.getElementById('players').textContent = '';
-  for(var i = 0; i < players.length; i++){
+  for (var i = 0; i < players.length; i++) {
     var playerName = document.createElement('div');
     var playerId = document.createElement('div');
     var playersHand = document.createElement('div');
     var playerPoints = document.createElement('div');
-    
+
     playerPoints.className = 'points';
     playerPoints.id = 'pointsId' + i;
     playerName.id = 'playerId' + i;
-    playerName.className = 'player'; 
+    playerName.className = 'player';
     playersHand.id = 'handId' + i;
 
     playerId.textContent = players[i].Id;
-    playerName.appendChild(playerId); 
-    playerName.appendChild(playersHand); 
+    playerName.appendChild(playerId);
+    playerName.appendChild(playersHand);
     playerName.appendChild(playerPoints);
     playerName.setAttribute('player', i);
 
@@ -41,15 +41,15 @@ function makePlayerDivs(){
 };
 
 // create player obj to be referenced;
-function createPlayers(num){
+function createPlayers(num) {
   players = [];
-  for(var i = 1; i <= num; i++){
+  for (var i = 1; i <= num; i++) {
     var hand = [];
-    var player = { 
-      Name: 'Player ' + i, 
-      Id: i, 
-      Points: 0, 
-      Hand: hand 
+    var player = {
+      Name: 'Player ' + i,
+      Id: i,
+      Points: 0,
+      Hand: hand
     };
     players.push(player);
   }
@@ -57,20 +57,20 @@ function createPlayers(num){
 
 // set values for each suit and number;
 // set Ace logic so that Ace can be counted as 1 or 11;
-function createDeck(){ 
+function createDeck() {
   deck = [];
-  for (var i = 0 ; i < values.length; i++){
-    for(var j = 0; j < suits.length; j++){
+  for (var i = 0; i < values.length; i++) {
+    for (var j = 0; j < suits.length; j++) {
       var cardValue = Number(values[i]);
-      if (values[i] === 'J' || values[i] === 'Q' || values[i] === 'K'){
-        cardValue = Number(10);              
-      } else if (values[i] === 'A'){
+      if (values[i] === 'J' || values[i] === 'Q' || values[i] === 'K') {
+        cardValue = Number(10);
+      } else if (values[i] === 'A') {
         cardValue = Number(11);
       }
-      var card = { 
-        Value: values[i], 
-        Suit: suits[j], 
-        CardValue: cardValue 
+      var card = {
+        Value: values[i],
+        Suit: suits[j],
+        CardValue: cardValue
       };
       deck.push(card);
     }
@@ -79,8 +79,8 @@ function createDeck(){
 
 // randomly select cards out of 1500;
 // cuts the deck & Shuffle cards;
-function randomCards(){
-  for (var i = 0; i < 1500; i++){
+function randomCards() {
+  for (var i = 0; i < 1500; i++) {
     var cutHalf = Math.floor((Math.random() * deck.length));
     var cutSecondHalf = Math.floor((Math.random() * deck.length));
     var cutDeck = deck[cutHalf];
@@ -90,25 +90,25 @@ function randomCards(){
 };
 
 // deal 2 cards to every player object
-function dealCards(){
+function dealCards() {
   currentPlayer = 0;
   createDeck();
   randomCards();
   createPlayers(2);
   makePlayerDivs();
   dealHands();
-  
+
   document.getElementById('playerId' + currentPlayer)
-  .classList.add('active');
+    .classList.add('active');
 };
 
 // alternate handing cards to each player
-function dealHands(){
-  for(var i = 0; i < 2; i++){
-    for (var j = 0; j < players.length; j++){
+function dealHands() {
+  for (var i = 0; i < 2; i++) {
+    for (var j = 0; j < players.length; j++) {
       var card = deck.pop();
       players[j].Hand.push(card);
-      
+
       printCard(card, j);
       printCardTotal();
     }
@@ -117,51 +117,51 @@ function dealHands(){
 };
 
 // prints the card to the board
-function printCard(card, player){
+function printCard(card, player) {
   var hand = document.getElementById('handId' + player);
   hand.appendChild(getCardValue(card));
 };
 
 //gets the suit of the card;
-function getCardValue(card){ 
+function getCardValue(card) {
   var el = document.createElement('div');
   el.className = 'card';
   el.textContent = card.Suit + ' ' + card.Value;
-  
+
   return el;
 };
 
 // check if current player new points are over 21
 // mimics if a player 'hits';
-function nextCard(){
+function nextCard() {
   var card = deck.pop();
   players[currentPlayer].Hand.push(card);
-    
-  printCard(card, currentPlayer); //
+
+  printCard(card, currentPlayer); 
   printCardTotal();
   cardsLeft();
   losingHand();
 };
 
 // move on to next player
-function stay(){
-  if (currentPlayer != players.length-1) {
+function stay() {
+  if (currentPlayer != players.length - 1) {
     document.getElementById('playerId' + currentPlayer).classList.remove('active');
     currentPlayer += 1;
     document.getElementById('playerId' + currentPlayer).classList.add('active');
   } else {
-    document.getElementById('playerId' + currentPlayer).classList.remove('active');    
+    document.getElementById('playerId' + currentPlayer).classList.remove('active');
     winningHand();
   }
 };
 
 // winning message and tie
-function winningHand(){
+function winningHand() {
   var score = 0;
-  for(var i = 0; i < players.length; i++){
-    if (players[i].Points > score && players[i].Points < 21){
+  for (var i = 0; i < players.length; i++) {
+    if (players[i].Points > score && players[i].Points < 21) {
       winner = i;
-    } else if (players[currentPlayer].Points === score){
+    } else if (players[currentPlayer].Points === score) {
       document.getElementById('condition').textContent = ('PUSH!');
       // setTimeout(function(){
       //   alert('PUSH!')
@@ -170,54 +170,49 @@ function winningHand(){
     }
     score = players[i].Points;
   }
-  document.getElementById('condition').textContent = ('Player ' + players[winner].Id + ' WINS!'); 
+  document.getElementById('condition').textContent = ('Player ' + players[winner].Id + ' WINS!');
 };
 
 // Losing hand
-function losingHand(){
-  if (players[currentPlayer].Points > 21){
+function losingHand() {
+  if (players[currentPlayer].Points > 21) {
     document.getElementById('condition').textContent = ('Player ' + players[currentPlayer].Id + ' LOST!');
   }
 };
 
 // updates the amount of cards left in the deck
 // prints the amount of cards left in the deck of 52;
-function cardsLeft(){
+function cardsLeft() {
   document.getElementById('deckcount').textContent = deck.length;
 };
 
 // returns the total of card values that a player has in hand
-function totalValue(player){
+function totalValue(player) {
+  var bool = false
   var points = 0;
-  for(var i = 0; i < players[player].Hand.length; i++){
+  for (var i = 0; i < players[player].Hand.length; i++) {
     points += players[player].Hand[i].CardValue;
-  }
-  players[player].Points = points;
-  if(players[player].Hand[i].CardValue === 'A'){
-    if(points > 21 && cardValue === 'A'){
-    points - 10;
+    if (players[player].Hand[i].Value === 'A') {
+      bool = true
     }
   }
+  if (bool === true) {
+    if (points > 21) points = points - 10
+  }
+  players[player].Points = points;
   return points;
 };
 
-// if(hand has ace in it){
-//   handscoreone = whatever the score is
-//   handscoreEleven = whatever score it is + 10
-//   if (handscoreEleven <21 && handscoreone<11){
-//   handscore = math.max() of handscoreEleven and handscoreone
-//   }
-
 // prints card total
-function printCardTotal(){
-  for (var i = 0 ; i < players.length; i++){
-    totalValue(i); 
-    document.getElementById('pointsId' + i).textContent = players[i].Points;
+function printCardTotal() {
+  for (var i = 0; i < players.length; i++) {
+    totalValue(i);
+    document.getElementById('pointsId' + i).textContent = 'Total: ' + players[i].Points;
   }
 };
 
 // initiates all functions
-function init(){
+function init() {
   createDeck();
   randomCards();
   createPlayers(1);
