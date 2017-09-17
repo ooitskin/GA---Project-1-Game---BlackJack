@@ -1,11 +1,11 @@
 // jQuery for fadeIn
-$(function () {
-  console.log('JSLinked!');
+// $(function () {
+//   console.log('JSLinked!');
 
-  $('body').css('display', 'none');
-  $('body').fadeIn(2000);
+//   $('body').css('display', 'none');
+//   $('body').fadeIn(2000);
 
-});
+// });
 // end jQuery
 
 var suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
