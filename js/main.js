@@ -8,7 +8,7 @@ $(function () {
 });
 // end jQuery
 
-var suits = ['Spades','Hearts', 'Diamonds', 'Clubs'];
+var suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
 var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 var deck = [];
 var players = [];
@@ -48,7 +48,7 @@ function createPlayers(num) {
     var hand = [];
     var player = {
       Name: 'Player ' + i,
-      Id: i,
+      Id: 'Player ' + i,
       Points: 0,
       Hand: hand,
       // Money: 1000
@@ -100,8 +100,7 @@ function dealCards() {
   makePlayerDivs();
   dealHands();
 
-  document.getElementById('playerId' + currentPlayer)
-    .classList.add('active');
+  document.getElementById('playerId' + currentPlayer).classList.add('active');
 };
 
 // alternate handing cards to each player
@@ -139,7 +138,7 @@ function nextCard() {
   var card = deck.pop();
   players[currentPlayer].Hand.push(card);
 
-  printCard(card, currentPlayer); 
+  printCard(card, currentPlayer);
   printCardTotal();
   cardsLeft();
   losingHand();
@@ -157,32 +156,25 @@ function stay() {
   }
 };
 
-// winning message and tie
+// winning message
 function winningHand() {
   var score = 0;
   for (var i = 0; i < players.length; i++) {
     if (players[i].Points > score && players[i].Points < 21) {
       winner = i;
-      // console.log(players[i]);
-      // players[i].Money += 100;
-      // console.log(players[i]);
     } else if (players[currentPlayer].Points === score) {
       document.getElementById('condition').textContent = ('PUSH!');
-      // setTimeout(function(){
-      //   alert('PUSH!')
-      // }, 100).textContent = ('PUSH!');
-      return i;
+      return score;
     }
     score = players[i].Points;
   }
-  document.getElementById('condition').textContent = ('Player ' + players[winner].Id + ' WINS!');
-  // document.getElementById('condition').textContent = ('Player won ' + players[winner].Money);
+  document.getElementById('condition').textContent = (players[winner].Id + ' WINS!');
 };
 
-// Losing hand
+// Losing hand and tie
 function losingHand() {
   if (players[currentPlayer].Points > 21) {
-    document.getElementById('condition').textContent = ('Player ' + players[currentPlayer].Id + ' LOST!');
+    document.getElementById('condition').textContent = (players[currentPlayer].Id + ' LOST!');
   }
 };
 
@@ -199,7 +191,7 @@ function totalValue(player) {
   for (var i = 0; i < players[player].Hand.length; i++) {
     points += players[player].Hand[i].CardValue;
     if (players[player].Hand[i].Value === 'A') {
-      bool = true
+      bool = true;
     }
   }
   if (bool === true) {

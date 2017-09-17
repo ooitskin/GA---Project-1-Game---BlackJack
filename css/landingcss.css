@@ -26,7 +26,7 @@ img {
 }
 
 #click-instruct {
-  color: white;
+  color: red;
   font-family: 'PT Mono', monospace;
   font-size: 15px; 
   margin-top: -10px;
@@ -43,5 +43,19 @@ img {
   color: white;
   line-height: 15px;
   margin-top: -50px;
+  float: left;
+  width: 600px;
+  margin-left: 75px;
 }
 
+#play {
+  text-align: center;
+  font-family: 'PT Mono', monospace;
+  font-size: 15px;   
+  color: white;
+  line-height: 15px;
+  margin-top: -50px;
+  float: right;
+  width: 600px;
+  margin-right: 75px;
+}
