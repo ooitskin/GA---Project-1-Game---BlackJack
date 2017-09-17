@@ -8,7 +8,7 @@ $(function () {
 });
 // end jQuery
 
-var suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
+var suits = ['Spades','Hearts', 'Diamonds', 'Clubs'];
 var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 var deck = [];
 var players = [];
@@ -22,6 +22,7 @@ function makePlayerDivs() {
     var playerId = document.createElement('div');
     var playersHand = document.createElement('div');
     var playerPoints = document.createElement('div');
+    // var suits = document.createElement('img');
 
     playerPoints.className = 'points';
     playerPoints.id = 'pointsId' + i;
@@ -49,7 +50,8 @@ function createPlayers(num) {
       Name: 'Player ' + i,
       Id: i,
       Points: 0,
-      Hand: hand
+      Hand: hand,
+      // Money: 1000
     };
     players.push(player);
   }
@@ -161,6 +163,9 @@ function winningHand() {
   for (var i = 0; i < players.length; i++) {
     if (players[i].Points > score && players[i].Points < 21) {
       winner = i;
+      // console.log(players[i]);
+      // players[i].Money += 100;
+      // console.log(players[i]);
     } else if (players[currentPlayer].Points === score) {
       document.getElementById('condition').textContent = ('PUSH!');
       // setTimeout(function(){
@@ -171,6 +176,7 @@ function winningHand() {
     score = players[i].Points;
   }
   document.getElementById('condition').textContent = ('Player ' + players[winner].Id + ' WINS!');
+  // document.getElementById('condition').textContent = ('Player won ' + players[winner].Money);
 };
 
 // Losing hand

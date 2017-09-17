@@ -4,38 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link type="text/css" rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type: "text/html" href="index.html">
+  <link type="text/css" rel="stylesheet" href="landingcss.css">  
   <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
   <link rel="icon" type="image/png" href="./img/cards/21.png">
   <script
-  src="http://code.jquery.com/jquery-3.2.1.js"
+  src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
-<script type="text/javascript" src="main.js"></script>    
-  <title>BlackJack</title>
+  <script type="text/javascript" src="landingjs.js"></script>      
+  <title>Landing Page</title>
 </head>
 <body>
-  <div class='game'>
+  <div id='logo'>
+    <a href='./index.html' id='clicklogo'><img src='./img/cards/aces.png'></a>
+    <p id='click-instruct'><em>->Click the Cards Above to Play!<-</em></p>    
+  </div> 
+  <div id='header'>
     <h1>Blackjack</h1>
-    
-    <div id='button'>
-      <input type='button' class='btn' value='Deal' onclick='dealCards()'>
-      <input type='button' class='btn' value='Hit' onclick='nextCard()'>
-      <input type='button' class='btn' value='Stay' onclick='stay()'>
-      <input type='button' class='btn' value='Next Game?' onClick='window.location.reload()'>
-    </div>  
-      <div id='center'>
-        <div id='deck' class='deck'>
-            <div class='card' id='deckcount'>52</div>
-            <div class='condition' id='condition'></div>
-          </div>
-    </div> 
-
-    <div id='players' class='players'></div>    
-
-    <div class='clear'></div>
+    <!-- <p id='click-instruct'><em>Click the Cards Above to Play!</em></p> -->
   </div>
+  <div id='intro'>
+      <h2><u>Instructions</u></h2>
+      <p> 
+        <h3>THE PACK</h3>
+        The standard 52-card pack is used, but in most casinos several decks of cards are shuffled together.
+      </p>    
+      <p> 
+        <h3>OBJECT OF THE GAME</h3>
+        Each participant attempts to beat the dealer by getting a count as close to 21 as possible, without going over 21.
+      </p>
+      <p>
+        <h3>CARD VALUES/SCORING</h3>
+        An ace is worth 1 or 11. Kings, Queens, & Jacks) are worth 10 and any other card is its card value.
+      </p>
+    </div>
 </body>
 </html>
-
