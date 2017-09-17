@@ -58,7 +58,7 @@ function createPlayers(num) {
 };
 
 // set values for each suit and number;
-// set Ace logic so that Ace can be counted as 1 or 11;
+// set Ace logic originally to 11
 function createDeck() {
   deck = [];
   for (var i = 0; i < values.length; i++) {
@@ -144,7 +144,7 @@ function nextCard() {
   losingHand();
 };
 
-// move on to next player
+// move active box on to next player
 function stay() {
   if (currentPlayer != players.length - 1) {
     document.getElementById('playerId' + currentPlayer).classList.remove('active');
@@ -156,7 +156,7 @@ function stay() {
   }
 };
 
-// winning message
+// winning message and tie message
 function winningHand() {
   var score = 0;
   for (var i = 0; i < players.length; i++) {
@@ -171,7 +171,7 @@ function winningHand() {
   document.getElementById('condition').textContent = (players[winner].Id + ' WINS!');
 };
 
-// Losing hand and tie
+// Losing hand
 function losingHand() {
   if (players[currentPlayer].Points > 21) {
     document.getElementById('condition').textContent = (players[currentPlayer].Id + ' LOST!');
@@ -185,6 +185,7 @@ function cardsLeft() {
 };
 
 // returns the total of card values that a player has in hand
+// included Ace logic so that Ace is set back to '1' if the points are over '21'
 function totalValue(player) {
   var bool = false
   var points = 0;
