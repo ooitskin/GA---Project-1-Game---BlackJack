@@ -39,5 +39,9 @@ WIREFRAME -
 https://wireframe.cc/tuMynI -> Landing Page
 <br>
 https://wireframe.cc/X9lqLw -> Game Page
+<br>
+UNFINISHED - 
+<br>
+I wasn't able to figure out how to append images to every card. No dealer AI.
 
   

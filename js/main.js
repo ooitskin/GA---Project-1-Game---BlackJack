@@ -1,12 +1,14 @@
 // jQuery for fadeIn
 // $(function () {
-//   console.log('JSLinked!');
+// console.log('JSLinked!');
 
 //   $('body').css('display', 'none');
 //   $('body').fadeIn(2000);
 
 // }); 
 // end jQuery
+
+console.log('JSLinked!');
 
 var suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
 var values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
@@ -91,33 +93,7 @@ function randomCards() {
   }
 };
 
-// deal 2 cards to every player object
-function dealCards() {
-  currentPlayer = 0;
-  createDeck();
-  randomCards();
-  createPlayers(2);
-  makePlayerDivs();
-  dealHands();
-
-  document.getElementById('playerId' + currentPlayer).classList.add('active');
-};
-
-// alternate handing cards to each player
-function dealHands() {
-  for (var i = 0; i < 2; i++) {
-    for (var j = 0; j < players.length; j++) {
-      var card = deck.pop();
-      players[j].Hand.push(card);
-
-      printCard(card, j);
-      printCardTotal();
-    }
-  }
-  cardsLeft();
-};
-
-// prints the card to the board
+// prints the card to the table
 function printCard(card, player) {
   var hand = document.getElementById('handId' + player);
   hand.appendChild(getCardValue(card));
@@ -132,6 +108,26 @@ function getCardValue(card) {
   return el;
 };
 
+// alternate handing 2 cards to each player
+function dealHands() {
+  for (var i = 0; i < 2; i++) {
+    for (var j = 0; j < players.length; j++) {
+      var card = deck.pop();
+      players[j].Hand.push(card);
+
+      printCard(card, j);
+      printCardTotal();
+    }
+  }
+  cardsLeft();
+};
+
+// updates the amount of cards left in the deck
+// prints the amount of cards left in the deck of 52;
+function cardsLeft() {
+  document.getElementById('deckcount').textContent = deck.length;
+};
+
 // check if current player new points are over 21
 // mimics if a player 'hits';
 function nextCard() {
@@ -144,7 +140,7 @@ function nextCard() {
   losingHand();
 };
 
-// move active box on to next player
+// move active border on to next player
 function stay() {
   if (currentPlayer != players.length - 1) {
     document.getElementById('playerId' + currentPlayer).classList.remove('active');
@@ -178,14 +174,8 @@ function losingHand() {
   }
 };
 
-// updates the amount of cards left in the deck
-// prints the amount of cards left in the deck of 52;
-function cardsLeft() {
-  document.getElementById('deckcount').textContent = deck.length;
-};
-
 // returns the total of card values that a player has in hand
-// included Ace logic so that Ace is set back to '1' if the points are over '21'
+// included Ace logic so that Ace is set back to '1' if the total points are over '21'
 function totalValue(player) {
   var bool = false
   var points = 0;
@@ -210,11 +200,15 @@ function printCardTotal() {
   }
 };
 
-// initiates all functions
-function init() {
+// deal 2 cards to every player object
+// start game
+function dealCards() {
+  currentPlayer = 0;
   createDeck();
   randomCards();
-  createPlayers(1);
-};
+  createPlayers(2); // can change the amount of players. Currently the amount of players = 2
+  makePlayerDivs();
+  dealHands();
 
-init();
+  document.getElementById('playerId' + currentPlayer).classList.add('active');
+};
