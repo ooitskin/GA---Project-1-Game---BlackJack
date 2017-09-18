@@ -2,7 +2,6 @@ body{
   background: url('../img/darkbackground.jpg') no-repeat center center fixed;
   background-size: cover;
   margin: 0 auto;
-  overflow: hidden;
 }
 
 h1{
