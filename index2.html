@@ -16,13 +16,17 @@
 
 <body>
   <div class='game'>
-    <h1>Blackjack</h1>
+    <h1>Let's Play Blackjack!</h1>
 
     <div id='button'>
-      <input type='button' class='btn' value='Deal' onclick='dealCards()'>
-      <input type='button' class='btn' value='Hit' onclick='nextCard()'>
-      <input type='button' class='btn' value='Stay' onclick='stay()'>
-      <input type='button' class='btn' value='Next Game?' onClick='window.location.reload()'>
+      <nav>
+        <ul>
+          <li><input type='button' class='btn' value='Deal' onclick='dealCards()'></li>
+          <li><input type='button' class='btn' value='Hit' onclick='nextCard()'></li>
+          <li><input type='button' class='btn' value='Stay' onclick='stay()'></li>
+          <li><input type='button' class='btn' value='Next Game?' onClick='window.location.reload()'></li>
+        </ul>
+      </nav>
     </div>
     <div id='center'>
       <div id='deck' class='deck'>

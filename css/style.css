@@ -2,6 +2,7 @@ body{
   background: url('../img/darkbackground.jpg') no-repeat center center fixed;
   background-size: cover;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 h1{
@@ -78,9 +79,15 @@ div {
   margin-bottom: 30px;
 }
 
+nav {
+  margin-top: 200px;
+  float: left;  
+}
+
 .btn {
+  position: fixed;
   font-family: 'Hammersmith One', sans-serif; 
-  font-size: 17px;
+  font-size: 25px;
   color: white;
   border-radius: 5px;  
   margin-left: 20px;
