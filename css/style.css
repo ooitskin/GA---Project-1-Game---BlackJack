@@ -22,7 +22,7 @@ div {
   width: 80px;
   height: 100px;
   padding: 10px;
-  border: solid 2px #AC3838;
+  border: solid 3px #AC3838;
   background-color: transparent;
   display: inline-block;
   border-radius: 10px;
@@ -82,10 +82,10 @@ div {
 .btn {
   font-family: 'Hammersmith One', sans-serif; 
   font-size: 17px;
-  color: black;
+  color: white;
   border-radius: 5px;  
   margin-left: 20px;
-  background-color: #B7BEC2;
+  background-color: transparent;
   border: none;
 }
 
