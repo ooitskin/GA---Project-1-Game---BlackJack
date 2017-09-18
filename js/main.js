@@ -5,7 +5,7 @@
 //   $('body').css('display', 'none');
 //   $('body').fadeIn(2000);
 
-// }); hi
+// }); 
 // end jQuery
 
 var suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
@@ -173,7 +173,7 @@ function winningHand() {
 
 // Losing hand
 function losingHand() {
-  if (players[currentPlayer].Points > 22) {
+  if (players[currentPlayer].Points > 21) {
     document.getElementById('condition').textContent = (players[currentPlayer].Id + ' LOST!');
   }
 };
