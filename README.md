@@ -31,7 +31,7 @@ To win, a player must have the higher total than the other player and/or have a 
 <br>
 <br>
 BUILT WITH - 
-HTML, CSS, Vanilla Javascript, jQuery;
+HTML, CSS, Javascript, jQuery;
 <br>
 <br>
 WIREFRAME - 
