@@ -35,7 +35,9 @@ HTML, CSS, Javascript, jQuery;
 <br>
 <br>
 WIREFRAME - 
+<br>
 https://wireframe.cc/tuMynI -> Landing Page
+<br>
 https://wireframe.cc/X9lqLw -> Game Page
 
   
