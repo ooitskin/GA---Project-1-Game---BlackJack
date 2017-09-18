@@ -5,7 +5,7 @@
 //   $('body').css('display', 'none');
 //   $('body').fadeIn(2000);
 
-// });
+// }); hi
 // end jQuery
 
 var suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs'];
