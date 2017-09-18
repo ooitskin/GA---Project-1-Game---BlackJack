@@ -22,8 +22,8 @@ div {
   width: 80px;
   height: 100px;
   padding: 10px;
-  border: solid 2px red;
-  background-color: white;
+  border: solid 2px #AC3838;
+  background-color: transparent;
   display: inline-block;
   border-radius: 10px;
   font-size: 23px;
@@ -38,7 +38,7 @@ div {
 }
 
 .player {
-  color: red;
+  color: white;
   width: 600px;
   border: transparent;
   border-radius: 10px;
@@ -66,7 +66,7 @@ div {
 
 /* deck counter */
 .deck { 
-  color: #AC3838;
+  color: white;
   width: 200px;
   float: left;
   margin: 0 auto;
