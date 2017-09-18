@@ -173,7 +173,7 @@ function winningHand() {
 
 // Losing hand
 function losingHand() {
-  if (players[currentPlayer].Points > 21) {
+  if (players[currentPlayer].Points > 22) {
     document.getElementById('condition').textContent = (players[currentPlayer].Id + ' LOST!');
   }
 };
