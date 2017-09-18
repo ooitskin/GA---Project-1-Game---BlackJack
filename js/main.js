@@ -160,7 +160,7 @@ function stay() {
 function winningHand() {
   var score = 0;
   for (var i = 0; i < players.length; i++) {
-    if (players[i].Points > score && players[i].Points < 21) {
+    if (players[i].Points > score && players[i].Points <= 21) {
       winner = i;
     } else if (players[currentPlayer].Points === score) {
       document.getElementById('condition').textContent = ('PUSH!');
