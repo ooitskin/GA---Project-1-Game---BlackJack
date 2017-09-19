@@ -24,7 +24,6 @@ function makePlayerDivs() {
     var playerId = document.createElement('div');
     var playersHand = document.createElement('div');
     var playerPoints = document.createElement('div');
-    // var suits = document.createElement('img');
 
     playerPoints.className = 'points';
     playerPoints.id = 'pointsId' + i;
@@ -37,7 +36,6 @@ function makePlayerDivs() {
     playerName.appendChild(playersHand);
     playerName.appendChild(playerPoints);
     playerName.setAttribute('player', i);
-
     //appends attributes to the players variable;
     document.getElementById('players').appendChild(playerName);
   }
@@ -84,7 +82,7 @@ function createDeck() {
 // randomly select cards out of 1500;
 // cuts the deck & Shuffle cards;
 function randomCards() {
-  for (var i = 0; i < 1500; i++) {
+  for (var i = 0; i < 100; i++) {
     var cutHalf = Math.floor((Math.random() * deck.length));
     var cutSecondHalf = Math.floor((Math.random() * deck.length));
     var cutDeck = deck[cutHalf];

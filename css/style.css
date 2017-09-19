@@ -2,7 +2,7 @@ body{
   background: url('../img/darkbackground.jpg') no-repeat center center fixed;
   background-size: cover;
   margin: 0 auto;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 h1{
@@ -82,6 +82,10 @@ div {
 nav {
   margin-top: 200px;
   float: left;  
+}
+
+nav li {
+  list-style-type: square;
 }
 
 .btn {
